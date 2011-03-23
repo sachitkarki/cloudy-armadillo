@@ -12,20 +12,26 @@ public class Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        // register the intent listener
         
-        
+        RegisterIntent();
         
     }
     
     private void RegisterIntent()
     {
-    	Intent regIntent = new Intent(getString(R.string.c2dm_google_register_path));
+    	Intent regIntent = new Intent(getString(R.string.com_google_android_c2dm_intent_REGISTER));
     	
     	regIntent.putExtra("app", 
     			PendingIntent.getBroadcast(this, 0, new Intent(), 0));
     	
+    	regIntent.putExtra("sender", getString(R.string.c2dm_sender_email));
     	
-    			
-    	
+    	startService(regIntent);
+    	    	
     }
+    
+    
+    
+    
 }

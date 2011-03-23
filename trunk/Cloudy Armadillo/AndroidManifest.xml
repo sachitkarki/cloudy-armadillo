@@ -3,9 +3,31 @@
       package="com.monkelabs.cloudyarmadillo"
       android:versionCode="1"
       android:versionName="1.0">
-
+      
+      	<permission android:name="com.monkelabs.cloudyarmadillo.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	  	<uses-permission android:name="com.monkelabs.cloudyarmadillo.permission.C2D_MESSAGE" />
+	  
+	  	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	  
+	  	<uses-permission android:name="android.permission.INTERNET" />
+	  
+	 	<uses-sdk android:minSdkVersion="8"></uses-sdk>
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
+    
+    	<receiver android:name=".C2DMReceiver" android:permission="com.google.android.c2dm.permission.SEND">
+          	<!-- Receive the actual message -->
+          	<intent-filter>
+              	<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            	<category android:name="com.monkelabs.cloudyarmadillo" />
+          	</intent-filter>
+          	<!-- Receive the registration id -->
+          	<intent-filter>
+              	<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            	<category android:name="com.monkelabs.cloudyarmadillo" />
+        	</intent-filter>
+      	</receiver>
+       
         <activity android:name=".Main"
                   android:label="@string/app_name">
             <intent-filter>
