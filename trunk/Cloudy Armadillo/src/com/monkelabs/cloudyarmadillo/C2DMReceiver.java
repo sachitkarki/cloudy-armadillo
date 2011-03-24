@@ -36,27 +36,27 @@ public class C2DMReceiver extends BroadcastReceiver {
 	}
 	
 	private void handleRegistration(Context context, Intent intent) {
-	    String registration = intent.getStringExtra("registration_id");
-	    if (intent.getStringExtra("error") != null) {
+	    String registration = intent.getStringExtra(context.getString(R.string.registration_id));
+	    if (intent.getStringExtra(context.getString(R.string.error)) != null) {
 	        // Registration failed, should try again later.
-		    Log.d("c2dm", "registration failed");
-		    String error = intent.getStringExtra("error");
-		    if(error == "SERVICE_NOT_AVAILABLE"){
-		    	Log.d("c2dm", "SERVICE_NOT_AVAILABLE");
-		    }else if(error == "ACCOUNT_MISSING"){
-		    	Log.d("c2dm", "ACCOUNT_MISSING");
-		    }else if(error == "AUTHENTICATION_FAILED"){
-		    	Log.d("c2dm", "AUTHENTICATION_FAILED");
-		    }else if(error == "TOO_MANY_REGISTRATIONS"){
-		    	Log.d("c2dm", "TOO_MANY_REGISTRATIONS");
-		    }else if(error == "INVALID_SENDER"){
-		    	Log.d("c2dm", "INVALID_SENDER");
-		    }else if(error == "PHONE_REGISTRATION_ERROR"){
-		    	Log.d("c2dm", "PHONE_REGISTRATION_ERROR");
+		    Log.d("c2dm", context.getString(R.string.registration_failed));
+		    String error = intent.getStringExtra(context.getString(R.string.error));
+		    if(error == context.getString(R.string.service_not_avaliable)){
+		    	Log.d("c2dm", context.getString(R.string.service_not_avaliable));
+		    }else if(error == context.getString(R.string.account_missing)){
+		    	Log.d("c2dm", context.getString(R.string.account_missing));
+		    }else if(error == context.getString(R.string.authentication_failed)){
+		    	Log.d("c2dm", context.getString(R.string.authentication_failed));
+		    }else if(error == context.getString(R.string.too_many_registration)){
+		    	Log.d("c2dm", context.getString(R.string.too_many_registration));
+		    }else if(error == context.getString(R.string.invalid_sender)){
+		    	Log.d("c2dm", context.getString(R.string.invalid_sender));
+		    }else if(error == context.getString(R.string.phone_registration_error)){
+		    	Log.d("c2dm", context.getString(R.string.phone_registration_error));
 		    }
-	    } else if (intent.getStringExtra("unregistered") != null) {
+	    } else if (intent.getStringExtra(context.getString(R.string.unregistered)) != null) {
 	        // unregistration done, new messages from the authorized sender will be rejected
-	    	Log.d("c2dm", "unregistered");
+	    	Log.d("c2dm", context.getString(R.string.unregistered));
 
 	    } else if (registration != null) {
 	    	Log.d("c2dm", registration);

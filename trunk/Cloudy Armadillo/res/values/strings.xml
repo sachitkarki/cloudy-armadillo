@@ -7,4 +7,19 @@
     <string name="c2dm_sender_email">robert.lyndon.davis@gmail.com</string>
     <string name="pref_reg_key_name">c2dmPref</string>
     <string name="pref_reg_key_value">registrationKey</string>
+    
+    <!-- String for matching up the return type from the registration call to google -->
+    <string name="error">error</string>
+    <string name="service_not_avaliable">SERVICE_NOT_AVAILABLE</string>
+    <string name="account_missing">ACCOUNT_MISSING</string>
+    <string name="authentication_failed">AUTHENTICATION_FAILED</string>
+	<string name="too_many_registration">TOO_MANY_REGISTRATIONS</string>
+	<string name="invalid_sender">INVALID_SENDER</string>
+	<string name="phone_registration_error">PHONE_REGISTRATION_ERROR</string>
+	<string name="unregistered">unregistered</string>
+	<string name="registration_id">registration_id</string>
+	<string name="registration_failed">registration failed</string>
 </resources>
+
+
+
